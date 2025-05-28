@@ -1,0 +1,206 @@
+.sidebar-container {
+  display: flex; /* Use flexbox */
+  flex-direction: column;
+  background-color: #232323; /* bg-gray-800 */
+  color: rgb(151, 151, 151); /* text-white */
+  width: 17vw; /* w-64 (assuming 1rem = 16px) */
+  transition: transform 300ms ease-in-out; /* transition-all duration-300 ease-in-out */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  overflow: hidden; /* overflow-hidden */
+  z-index: 10; /* z-10 */
+  position: absolute; /* relative */
+  border-radius: 0 0 1vmin 1vmin;
+  height: 100vh;
+}
+/* Collapsed state for sidebar container */
+.sidebar-container.collapsed {
+  transform: translateY(calc(-100% + 3.5vh)); /* h-12 */
+}
+.sidebar-container > h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 2vh;
+}
+.sidebar-container > h2::after {
+  content: "";
+  display: block;
+  width: calc(100% - 2vw);
+  position: relative;
+  height: 0.2vh;
+  background-color: #505050; /* bg-gray-600 */
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: auto; /* Center the line with auto margins */
+  margin-right: auto; /* Center the line with auto margins */
+}
+.sidebar-add-button {
+  align-self: center;
+  width: calc(100% - 2vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: rgb(151, 151, 151);
+  background-color: #505050; /* bg-gray-700 */
+  border-radius: 0.5vmin;
+  margin-bottom: 2vh;
+  padding: 1vmin;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  transition: filter 200ms ease, color 200ms ease;
+}
+.sidebar-add-icon {
+  margin-right: 1rem;
+}
+.sidebar-add-button:hover {
+  filter: brightness(110%);
+  color: rgb(181, 181, 181);
+}
+
+.sidebar-list-wrapper {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  padding: 0 1vw 0 1vw;
+  justify-content: flex-start; /* Align content to the start */
+  align-items: center; /* Center items horizontally */
+  height: calc(100% - 3.5vh - 2vh - 2vh - 0.2vh - 2vh - 2vh - 10.5vh);
+  width: 100%;
+  overflow-y: auto; /* Add scroll if list is too long */
+}
+
+.sidebar-nav {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-list {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack list items vertically */
+  gap: 0.5vh; /* Add space between list items */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Ensure list takes full width of nav */
+  padding: 0; /* Remove default list padding */
+  margin: 0; /* Remove default list margin */
+}
+
+.sidebar-list-item {
+  display: flex; /* Use flexbox */
+  flex-direction: row;
+  align-items: center; /* Vertically align items */
+  /* Changed justify-content to flex-start */
+  justify-content: flex-start;
+  gap: 0.5vmin; /* Add gap between label and icons */
+  height: 5vh; /* Set item height */
+  width: 100%; /* Ensure item takes full width of list */
+  background-color: #505050; /* Background for the entire item */
+  border-radius: 0.5vmin;
+  padding: 0 1vmin; /* Add padding */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  transition: filter 200ms ease, background-color 200ms ease; /* Transition for hover effect */
+  cursor: pointer;
+}
+.sidebar-list-item:hover {
+  filter: brightness(105%);
+  background-color: #868686;
+}
+.selected {
+  filter: brightness(105%);
+  background-color: #868686;
+}
+
+.sidebar-list-item:hover .sidebar-list-item-text-content > button,
+.sidebar-list-item:hover .sidebar-list-item-text-content > p {
+  color: rgb(55, 55, 55); /* Darker color for the label on hover */
+}
+
+.selected > .sidebar-list-item-text-content > button,
+.selected > .sidebar-list-item-text-content > p {
+  color: rgb(55, 55, 55); /* Darker color for the label when selected */
+}
+.sidebar-list-item-text-content {
+  width: 100%;
+}
+.sidebar-list-item-text-content > p {
+  font-size: 0.8rem;
+  transition: color 200ms ease;
+}
+.sidebar-list-item-label {
+  transition: color 200ms ease;
+  flex-grow: 1; /* Allow label to take up available space */
+  min-width: 0; /* Allow the flex item to shrink below its content size */
+  background-color: transparent; /* Make label background transparent */
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  color: rgb(151, 151, 151); /* Inherit color from parent or set explicitly */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0; /* Remove default button padding */
+}
+
+.sidebar-list-item-icons {
+  flex-shrink: 0; /* Prevent icons from shrinking */
+  background-color: transparent; /* Make icon background transparent */
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vmin; /* Space between icons */
+  color: rgb(151, 151, 151); /* Inherit color or set explicitly */
+  background-color: #2b2b2b;
+  padding: 0.5vmin;
+  cursor: pointer;
+  transition: color 200ms ease, background-color 200ms ease;
+}
+
+.sidebar-list-item-icons:hover {
+  color: rgb(181, 181, 181);
+  background-color: #565656;
+}
+
+/* Toggle Button Container - always visible at the bottom */
+.toggle-handle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #373f4a; /* bg-gray-700 */
+  height: 3.5vh; /* h-12 */
+  width: 100%; /* w-full */
+  position: absolute; /* absolute */
+  bottom: 0; /* bottom-0 */
+  left: 0; /* left-0 */
+  right: 0; /* right-0 */
+}
+
+/* Toggle Button */
+.toggle-button {
+  height: calc(3vh);
+  width: 3vh; /* h-12 w-12 */
+  background-color: #54657b; /* bg-gray-600 */
+  border-radius: 9999px; /* rounded-full */
+  transition: background-color 200ms ease-in-out; /* transition-colors duration-200 */
+  color: white; /* text-white */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically center icon */
+}
+
+.toggle-button:hover {
+  filter: brightness(110%);
+}
+.toggle-handle-container:has(.toggle-button:hover) {
+  filter: brightness(110%); /* bg-gray-600 */
+}
+
+.toggle-button:focus {
+  outline: none; /* focus:outline-none */
+}

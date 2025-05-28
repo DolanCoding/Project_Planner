@@ -1,0 +1,54 @@
+.projectMapContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #222222;
+  grid-column: 1/4;
+  grid-row: 1;
+  justify-content: center;
+  align-items: center;
+
+  .flowCanvasContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .buttonDiv {
+      position: absolute;
+      bottom: 5vh;
+      left: 50%;
+    }
+  }
+  .projectMapButtons {
+    position: absolute;
+    bottom: 5vh;
+    width: 12vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+      color: rgb(151, 151, 151);
+      background-color: #222222;
+      border: 0.2vmin solid rgb(151, 151, 151);
+      padding: 1vmin;
+      border-radius: 0.5vmin;
+    }
+    button:hover {
+      background-color: #505050;
+      color: rgb(181, 181, 181);
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+  }
+}
+
+.leftSidebarOpen {
+  grid-column: 2/4;
+}
+.rightSidebarOpen {
+  grid-column: 1/3;
+}
+.bothSidebarsOpen {
+  grid-column: 2;
+}

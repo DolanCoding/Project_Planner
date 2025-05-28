@@ -1,0 +1,45 @@
+.note-node {
+  background: #fff0a7;
+  border: 0.1vmin solid #ffd549;
+  padding: 1vmin;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  color: #ad8b00;
+  cursor: grab;
+  user-select: none;
+  display: inline-block;
+}
+
+.note-node-input {
+  width: 100%;
+  height: 100%;
+  min-width: 5em;
+  min-height: 2.5em;
+  border: none;
+  background: transparent;
+  font-size: 0.5rem;
+  color: #ad8b00;
+  resize: both;
+  margin: 0;
+  box-sizing: border-box;
+  resize: none;
+  cursor: grab;
+}
+
+.note-node > button {
+  color: rgb(181, 181, 181);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2vmin;
+  font-size: 0.5rem;
+  position: absolute;
+  top: 0.5vmin;
+  right: 0.5vmin;
+}
+
+.note-node--active {
+  border: 0.2vmin solid #1976d2 !important;
+  box-shadow: 0 0 0 2px #1976d233;
+  z-index: 2;
+}

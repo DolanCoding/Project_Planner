@@ -1,0 +1,483 @@
+.node-settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(26rem, 100vw);
+  height: 100vh;
+  background: #232323;
+  color: #e0e0e0;
+  box-shadow: -0.2rem 0 1.2rem rgba(0, 0, 0, 0.28);
+  z-index: 1002;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 0.15rem solid #353535;
+  transition: box-shadow 0.2s;
+}
+
+.node-settings-panel h2 {
+  margin: 0 0 1.6rem 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #fafafa;
+  letter-spacing: 0.04rem;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section label {
+  display: block;
+  font-weight: 500;
+  color: #bdbdbd;
+  letter-spacing: 0.01rem;
+}
+
+.node-settings-panel input[type="text"],
+.node-settings-panel input,
+.node-settings-panel select {
+  width: 100%;
+  padding: 0.3rem 0.75rem;
+  border: 0.09rem solid #444;
+  background: #353535;
+  color: #e0e0e0;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.15s, background 0.15s;
+  text-align: center;
+}
+
+.node-settings-panel input:focus,
+.node-settings-panel select:focus {
+  background: #2a2a2a;
+  /* border removed */
+}
+
+.handles-table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: #232323;
+  border: 0.125rem solid #444; /* 2px -> 0.125rem */
+  border-radius: 0.5rem;
+  overflow: auto;
+  box-shadow: 0 0.125rem 0.5rem rgba(30, 30, 30, 0.1); /* 2px 8px -> 0.125rem 0.5rem */
+  display: block;
+  min-height: 20vh;
+  max-height: 35vh;
+  padding-right: 0;
+  border-collapse: collapse; /* Prevent cell borders */
+}
+
+.handles-table th,
+.handles-table td {
+  border: none; /* Remove all inner borders */
+  padding: 0.5rem 0.96rem; /* Increased horizontal padding for wider cells */
+  text-align: center;
+  vertical-align: middle;
+  background: transparent;
+  user-select: none; /* Prevent text selection */
+}
+
+.handles-table th {
+  background: #292929;
+  font-weight: 600;
+  color: #bdbdbd;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  width: 37.75%;
+}
+
+.handles-table tr:nth-child(even) {
+  background: #282828;
+}
+
+.handles-table button {
+  background: none;
+  border: none;
+  color: #e57373;
+  font-size: 1.15rem;
+  cursor: pointer;
+  padding: 0.18rem 0.6rem;
+  border-radius: 0.22rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.handles-table button:hover {
+  background: #3a2323;
+  color: #fff;
+}
+
+.handles-table-select-type,
+.handles-table-select-position {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin-right: 0;
+}
+
+.handles-table-select-position {
+  width: 9rem; /* Slightly more wide than before */
+  min-width: 9rem;
+  max-width: 100%;
+}
+
+.handles-table-td-type,
+.handles-table-td-position {
+  padding-right: 0.3rem; /* Less gap between columns */
+  padding-left: 0.3rem;
+}
+
+.handles-table select {
+  text-align: center; /* Center the selected value in the select field */
+}
+
+/* All options in the dropdown are left-aligned */
+.handles-table select option {
+  text-align: start;
+}
+
+.add-handle-btn {
+  background: linear-gradient(90deg, #1976d2 60%, #1565c0 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+  margin-top: 0.7rem;
+  font-weight: 500;
+  box-shadow: 0 0.125rem 0.5rem rgba(25, 118, 210, 0.08); /* 2px 8px -> 0.125rem 0.5rem */
+  transition: background 0.15s;
+  user-select: none; /* Prevent text selection */
+}
+
+.add-handle-btn:hover {
+  background: linear-gradient(90deg, #1256a3 60%, #1976d2 100%);
+}
+
+.color-picker-section {
+  display: flex;
+  align-items: center; /* Vertically center label and color picker */
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.color-picker-label {
+  display: flex;
+  align-items: center; /* Ensure label text is also vertically centered */
+  min-width: 6rem;
+  font-weight: 500;
+  color: #bdbdbd;
+  margin-bottom: 0;
+  letter-spacing: 0.01rem;
+}
+
+.node-color-input {
+  flex: 1;
+  max-width: 16rem;
+  height: 2.6rem;
+  border: 0.0625rem solid #444; /* 1px -> 0.0625rem */
+  background: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  box-shadow: none; /* Remove extra shadow */
+  transition: border 0.15s;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.node-color-input:focus {
+  border: 0.09375rem solid #1976d2; /* 1.5px -> 0.09375rem */
+}
+
+.close-panel-btn {
+  position: absolute;
+  top: 0.8125rem; /* 1.3px -> 0.8125rem */
+  right: 0.8125rem;
+  background: none;
+  border: none;
+  color: #bdbdbd;
+  font-size: 1.7rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.15s, background 0.15s;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-panel-btn:hover {
+  color: #fff;
+  background: #333;
+}
+
+.close-panel-btn.bottom {
+  position: static; /* Remove absolute positioning */
+  right: auto;
+  bottom: auto;
+  margin-top: auto; /* Push to bottom in flex column */
+  margin-right: 0;
+  width: 8rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  background: #292929;
+  color: #fafafa;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end; /* Align to the right */
+  transition: background 0.15s, color 0.15s;
+  z-index: 10;
+}
+
+.close-panel-btn.bottom:hover {
+  background: #1976d2;
+  color: #fff;
+}
+
+.label-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.label-input-row label {
+  min-width: 6rem;
+  font-weight: 500;
+  color: #bdbdbd;
+  margin-bottom: 0;
+  letter-spacing: 0.01rem;
+}
+
+.label-input-row input[type="text"] {
+  flex: 1;
+  margin-bottom: 0;
+  max-width: 16rem;
+}
+
+.handles-table-row {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.handles-table-td-action {
+  text-align: center;
+  vertical-align: middle;
+  width: 2.5rem; /* or adjust as needed */
+  padding: 0;
+}
+
+.handles-table-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 2rem;
+  height: 2rem;
+  min-height: 2rem;
+  font-size: 1.15rem;
+  background: none;
+  border: none;
+  color: #e57373;
+  border-radius: 50%;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.handles-table-remove-btn:hover {
+  background: #3a2323;
+  color: #fff;
+}
+
+/* Range input styling for dark theme */
+.node-range {
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  appearance: none;
+  height: 0.35rem;
+  background: #353535;
+  border-radius: 0.3rem;
+  outline: none;
+  transition: background 0.2s;
+  box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.18);
+}
+
+.node-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 60%, #1565c0 100%);
+  border: 0.15rem solid #222;
+  box-shadow: 0 0.1rem 0.4rem rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  margin-top: -0.425rem; /* Half of thumb height minus half of track height: (1.2rem - 0.35rem)/2 */
+}
+
+.node-range:focus::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #2196f3 60%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.node-range::-moz-range-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 60%, #1565c0 100%);
+  border: 0.15rem solid #222;
+  box-shadow: 0 0.1rem 0.4rem rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  /* Firefox centers by default, but you can tweak if needed */
+}
+
+.node-range:focus::-moz-range-thumb {
+  background: linear-gradient(135deg, #2196f3 60%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.node-range::-ms-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 60%, #1565c0 100%);
+  border: 0.15rem solid #222;
+  box-shadow: 0 0.1rem 0.4rem rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  margin-top: 0; /* IE/Edge may need no adjustment */
+}
+
+.node-range:focus::-ms-thumb {
+  background: linear-gradient(135deg, #2196f3 60%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.node-range::-webkit-slider-runnable-track {
+  height: 0.35rem;
+  border-radius: 0.3rem;
+  background: #353535;
+}
+
+.node-range::-ms-fill-lower,
+.node-range::-ms-fill-upper {
+  background: #353535;
+  border-radius: 0.3rem;
+}
+
+.node-range-width {
+  accent-color: #1976d2;
+}
+
+.node-range-height {
+  accent-color: #43a047;
+}
+
+/* Hide outline for Firefox */
+.node-range::-moz-focus-outer {
+  border: 0;
+}
+
+/* For IE */
+.node-range:focus {
+  outline: none;
+}
+
+/* Label and value styling for range controls */
+.settings-section label[for="node-width"],
+.settings-section label[for="node-height"] {
+  color: #bdbdbd;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02rem;
+}
+
+.settings-section span {
+  display: block;
+  color: #888;
+  font-size: 0.98rem;
+  margin-top: 0.2rem;
+  text-align: right;
+  letter-spacing: 0.01rem;
+}
+
+/* Remove all custom styles for number input spin buttons and revert to default browser styling */
+.node-range-input[type="number"] {
+  font-size: 1rem;
+  padding: 0.3rem 0.75rem;
+  height: auto;
+  background: #353535;
+  color: #e0e0e0;
+  border: 0.09rem solid #444;
+  border-radius: 0.3rem;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.15s, background 0.15s;
+}
+
+/* Remove all custom spin button styles */
+.node-range-input[type="number"]::-webkit-inner-spin-button,
+.node-range-input[type="number"]::-webkit-outer-spin-button,
+.node-range-input[type="number"]::-ms-inner-spin-button,
+.node-range-input[type="number"]::-ms-outer-spin-button {
+  width: auto;
+  height: auto;
+  background: initial;
+  border-radius: initial;
+  border: none;
+  margin: initial;
+  -webkit-appearance: inner-spin-button;
+  appearance: auto;
+}
+
+/* Hide spinner buttons for number inputs */
+.node-range-input[type="number"]::-webkit-inner-spin-button,
+.node-range-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.node-range-input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.node-range-input[type="number"]::-ms-inner-spin-button,
+.node-range-input[type="number"]::-ms-outer-spin-button {
+  display: none;
+}
+
+/* Remove duplicate or unnecessary rules */
+
+.panel-button-group {
+  justify-content: end;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.delete-node-btn {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.delete-node-btn:hover {
+  background: #d32f2f;
+}

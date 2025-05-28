@@ -1,0 +1,53 @@
+.cog-node {
+  background-color: #505050;
+  padding: 1.5vmin;
+  position: relative;
+  min-width: 7vw;
+  min-height: 5vh;
+  border-radius: 0.5vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cog-node > .cog-node-label {
+  color: rgb(181, 181, 181);
+  font-size: 0.75rem;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.cog-node > button {
+  color: rgb(181, 181, 181);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2vmin;
+  font-size: 0.5rem;
+  position: absolute;
+  top: 0.5vmin;
+  right: 0.5vmin;
+}
+
+.cog-node > button:hover {
+  background-color: #ffffff53;
+  color: #fff;
+}
+
+.react-flow__node-default {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.cog-node.selected {
+  outline: 0.1vmin solid #1976d2;
+  box-shadow: 0 0 0 0.2vmin #1976d2aa;
+  z-index: 2;
+}

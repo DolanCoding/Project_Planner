@@ -1,0 +1,216 @@
+.note-settings-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(26rem, 100vw);
+  height: 100vh;
+  background: #232323;
+  color: #e0e0e0;
+  box-shadow: -0.2rem 0 1.2rem rgba(0, 0, 0, 0.28);
+  z-index: 1002;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 0.15rem solid #353535;
+  transition: box-shadow 0.2s;
+}
+
+.note-settings-panel h2 {
+  margin: 0 0 1.6rem 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #fafafa;
+  letter-spacing: 0.04rem;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section label {
+  display: block;
+  font-weight: 500;
+  color: #bdbdbd;
+  letter-spacing: 0.01rem;
+  margin-bottom: 0.5rem;
+}
+
+.note-settings-panel textarea {
+  width: 100%;
+  min-height: 6rem;
+  padding: 0.7rem 1rem;
+  border: 0.09rem solid #444;
+  background: #353535;
+  color: #e0e0e0;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.15s, background 0.15s;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.note-settings-panel textarea:focus {
+  background: #2a2a2a;
+}
+
+/* Range input styling for dark theme */
+.note-settings-panel input[type="range"] {
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  appearance: none;
+  height: 0.35rem;
+  background: #353535;
+  border-radius: 0.3rem;
+  outline: none;
+  transition: background 0.2s;
+  box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.18);
+  accent-color: #1976d2;
+}
+
+.note-settings-panel input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 60%, #1565c0 100%);
+  border: 0.15rem solid #222;
+  box-shadow: 0 0.1rem 0.4rem rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  margin-top: -0.425rem;
+}
+
+.note-settings-panel input[type="range"]:focus::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #2196f3 60%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.note-settings-panel input[type="range"]::-moz-range-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 60%, #1565c0 100%);
+  border: 0.15rem solid #222;
+  box-shadow: 0 0.1rem 0.4rem rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+
+.note-settings-panel input[type="range"]:focus::-moz-range-thumb {
+  background: linear-gradient(135deg, #2196f3 60%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.note-settings-panel input[type="range"]::-ms-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1976d2 60%, #1565c0 100%);
+  border: 0.15rem solid #222;
+  box-shadow: 0 0.1rem 0.4rem rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  margin-top: 0;
+}
+
+.note-settings-panel input[type="range"]:focus::-ms-thumb {
+  background: linear-gradient(135deg, #2196f3 60%, #1976d2 100%);
+  border-color: #1976d2;
+}
+
+.note-settings-panel input[type="range"]::-webkit-slider-runnable-track {
+  height: 0.35rem;
+  border-radius: 0.3rem;
+  background: #353535;
+}
+
+.note-settings-panel input[type="range"]::-ms-fill-lower,
+.note-settings-panel input[type="range"]::-ms-fill-upper {
+  background: #353535;
+  border-radius: 0.3rem;
+}
+
+/* Hide outline for Firefox */
+.note-settings-panel input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+
+/* For IE */
+.note-settings-panel input[type="range"]:focus {
+  outline: none;
+}
+
+/* Label and value styling for range controls */
+.settings-section label[for="note-width"],
+.settings-section label[for="note-height"] {
+  color: #bdbdbd;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02rem;
+}
+
+.settings-section span {
+  display: block;
+  color: #888;
+  font-size: 0.98rem;
+  margin-top: 0.2rem;
+  text-align: right;
+  letter-spacing: 0.01rem;
+}
+
+/* Number input for range (if you add one) */
+.note-range-input[type="number"] {
+  font-size: 1rem;
+  padding: 0.3rem 0.75rem;
+  height: auto;
+  background: #353535;
+  color: #e0e0e0;
+  border: 0.09rem solid #444;
+  border-radius: 0.3rem;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.15s, background 0.15s;
+}
+
+.panel-button-group {
+  justify-content: end;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.close-panel-btn {
+  background: #292929;
+  color: #fafafa;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.close-panel-btn:hover {
+  background: #1976d2;
+  color: #fff;
+}
+
+.delete-node-btn {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.delete-node-btn:hover {
+  background: #d32f2f;
+}
